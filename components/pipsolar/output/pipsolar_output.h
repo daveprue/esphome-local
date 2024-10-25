@@ -4,7 +4,7 @@
 #include "esphome/components/output/float_output.h"
 #include "esphome/core/component.h"
 
-//#include <vector>
+#include <vector>
 
 namespace esphome {
 namespace pipsolar {
