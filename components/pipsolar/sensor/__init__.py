@@ -146,31 +146,31 @@ TYPES = {
         accuracy_decimals=1,
     ),
     CONF_OUTPUT_SOURCE_PRIORITY: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_CHARGER_SOURCE_PRIORITY: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_PARALLEL_MAX_NUM: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_MACHINE_TYPE: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_TOPOLOGY: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_OUTPUT_MODE: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_BATTERY_REDISCHARGE_VOLTAGE: sensor.sensor_schema(
         accuracy_decimals=1,
     ),
     CONF_PV_OK_CONDITION_FOR_PARALLEL: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_PV_POWER_BALANCE: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_GRID_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
