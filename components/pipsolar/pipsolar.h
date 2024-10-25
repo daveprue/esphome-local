@@ -13,13 +13,14 @@ namespace pipsolar {
 
 enum ENUMPollingCommand {
   POLLING_QPIRI = 0,
-  POLLING_QPIGS = 1,
-  POLLING_QMOD = 2,
-  POLLING_QFLAG = 3,
-  POLLING_QPIWS = 4,
-  POLLING_QT = 5,
-  POLLING_QMN = 6,
+//  POLLING_QPIGS = 1,
+//  POLLING_QMOD = 2,
+//  POLLING_QFLAG = 3,
+//  POLLING_QPIWS = 4,
+//  POLLING_QT = 5,
+//  POLLING_QMN = 6,
 };
+
 struct PollingCommand {
   uint8_t *command;
   uint8_t length = 0;
@@ -186,7 +187,7 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   void update() override;
 
  protected:
-  static const size_t PIPSOLAR_READ_BUFFER_LENGTH = 110;  // maximum supported answer length
+  static const size_t PIPSOLAR_READ_BUFFER_LENGTH = 160;  // maximum supported answer length
   static const size_t COMMAND_QUEUE_LENGTH = 10;
   static const size_t COMMAND_TIMEOUT = 10000;
   uint32_t last_poll_ = 0;
