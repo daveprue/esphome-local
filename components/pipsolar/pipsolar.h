@@ -13,12 +13,12 @@ namespace pipsolar {
 
 enum ENUMPollingCommand {
   POLLING_QPIRI = 0,
-//  POLLING_QPIGS = 1,
-//  POLLING_QMOD = 2,
-//  POLLING_QFLAG = 3,
-//  POLLING_QPIWS = 4,
-//  POLLING_QT = 5,
-//  POLLING_QMN = 6,
+  POLLING_QPIGS = 1,
+  POLLING_QMOD = 2,
+  POLLING_QFLAG = 3,
+  POLLING_QPIWS = 4,
+  POLLING_QT = 5,
+  POLLING_QMN = 6,
 };
 
 struct PollingCommand {
