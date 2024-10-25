@@ -82,13 +82,13 @@ TYPES = {
     ),
     CONF_AC_OUTPUT_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_AC_OUTPUT_RATING_FREQUENCY: sensor.sensor_schema(
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_AC_OUTPUT_RATING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
@@ -97,11 +97,11 @@ TYPES = {
     ),
     CONF_AC_OUTPUT_RATING_APPARENT_POWER: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT_AMPS,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_AC_OUTPUT_RATING_ACTIVE_POWER: sensor.sensor_schema(
         unit_of_measurement=UNIT_WATT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_POWER,
     ),
     CONF_BATTERY_RATING_VOLTAGE: sensor.sensor_schema(
@@ -130,7 +130,7 @@ TYPES = {
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_BATTERY_TYPE: sensor.sensor_schema(
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     CONF_CURRENT_MAX_AC_CHARGING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
