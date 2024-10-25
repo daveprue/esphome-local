@@ -98,7 +98,7 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_SENSOR(battery_under_voltage, QPIRI, float)
   PIPSOLAR_SENSOR(battery_bulk_voltage, QPIRI, float)
   PIPSOLAR_SENSOR(battery_float_voltage, QPIRI, float)
-  PIPSOLAR_VALUED_TEXT_SENSOR(battery_type, QPIRI, int)
+  PIPSOLAR_SENSOR(battery_type, QPIRI, int)
   PIPSOLAR_SENSOR(current_max_ac_charging_current, QPIRI, int)
   PIPSOLAR_SENSOR(current_max_charging_current, QPIRI, int)
   PIPSOLAR_SENSOR(input_voltage_range, QPIRI, int)
