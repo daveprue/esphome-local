@@ -6,7 +6,7 @@ from .. import PIPSOLAR_COMPONENT_SCHEMA, CONF_PIPSOLAR_ID
 
 DEPENDENCIES = ["uart"]
 
-CONF_OUTPUT_SOURCE = "output_source"
+CONF_OUTPUT_SOURCE = "test_popup"
 
 TYPES = [
     CONF_OUTPUT_SOURCE,
