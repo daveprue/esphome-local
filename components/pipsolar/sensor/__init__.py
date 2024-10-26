@@ -72,7 +72,7 @@ CONF_PV_CHARGING_POWER = "pv_charging_power"
 TYPES = {
     CONF_GRID_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_GRID_RATING_CURRENT: sensor.sensor_schema(
@@ -82,13 +82,13 @@ TYPES = {
     ),
     CONF_AC_OUTPUT_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_AC_OUTPUT_RATING_FREQUENCY: sensor.sensor_schema(
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_AC_OUTPUT_RATING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
@@ -97,16 +97,16 @@ TYPES = {
     ),
     CONF_AC_OUTPUT_RATING_APPARENT_POWER: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT_AMPS,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_AC_OUTPUT_RATING_ACTIVE_POWER: sensor.sensor_schema(
         unit_of_measurement=UNIT_WATT,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
         device_class=DEVICE_CLASS_POWER,
     ),
     CONF_BATTERY_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_BATTERY_RECHARGE_VOLTAGE: sensor.sensor_schema(
@@ -130,47 +130,47 @@ TYPES = {
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_BATTERY_TYPE: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_CURRENT_MAX_AC_CHARGING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
         device_class=DEVICE_CLASS_CURRENT,
     ),
     CONF_CURRENT_MAX_CHARGING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
-        accuracy_decimals=0,
+        accuracy_decimals=1,
         device_class=DEVICE_CLASS_CURRENT,
     ),
     CONF_INPUT_VOLTAGE_RANGE: sensor.sensor_schema(
         accuracy_decimals=1,
     ),
     CONF_OUTPUT_SOURCE_PRIORITY: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_CHARGER_SOURCE_PRIORITY: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_PARALLEL_MAX_NUM: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_MACHINE_TYPE: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_TOPOLOGY: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_OUTPUT_MODE: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_BATTERY_REDISCHARGE_VOLTAGE: sensor.sensor_schema(
         accuracy_decimals=1,
     ),
     CONF_PV_OK_CONDITION_FOR_PARALLEL: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_PV_POWER_BALANCE: sensor.sensor_schema(
-        accuracy_decimals=0,
+        accuracy_decimals=1,
     ),
     CONF_GRID_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,

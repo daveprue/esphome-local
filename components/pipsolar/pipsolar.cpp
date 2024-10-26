@@ -860,7 +860,6 @@ void Pipsolar::switch_command(const std::string &command) {
   ESP_LOGD(TAG, "got command: %s", command.c_str());
   queue_command_(command.c_str(), command.length());
 }
-
 void Pipsolar::dump_config() {
   ESP_LOGCONFIG(TAG, "Pipsolar:");
   ESP_LOGCONFIG(TAG, "used commands:");

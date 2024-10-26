@@ -4,8 +4,8 @@ from esphome.const import CONF_ID
 from esphome.components import uart
 
 DEPENDENCIES = ["uart"]
-CODEOWNERS = ["@daveprue"]
-AUTO_LOAD = ["binary_sensor", "sensor", "switch"]
+CODEOWNERS = ["@andreashergert1984"]
+AUTO_LOAD = ["binary_sensor", "text_sensor", "sensor", "switch", "output"]
 MULTI_CONF = True
 
 CONF_PIPSOLAR_ID = "pipsolar_id"
