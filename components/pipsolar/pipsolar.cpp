@@ -108,7 +108,8 @@ void Pipsolar::loop() {
           this->battery_float_voltage_->publish_state(value_battery_float_voltage_);
         }
         if (this->battery_type_) {
-          this->battery_type_->publish_state(value_battery_type_);
+          type = value_battery_type_;
+          this->device_mode_->publish_state(type);
         }
         if (this->current_max_ac_charging_current_) {
           this->current_max_ac_charging_current_->publish_state(value_current_max_ac_charging_current_);
@@ -860,6 +861,7 @@ void Pipsolar::switch_command(const std::string &command) {
   ESP_LOGD(TAG, "got command: %s", command.c_str());
   queue_command_(command.c_str(), command.length());
 }
+
 void Pipsolar::dump_config() {
   ESP_LOGCONFIG(TAG, "Pipsolar:");
   ESP_LOGCONFIG(TAG, "used commands:");
