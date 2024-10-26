@@ -184,8 +184,6 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_SWITCH(pv_ok_condition_for_parallel_switch, QPIRI)
   PIPSOLAR_SWITCH(pv_power_balance_switch, QPIRI)
 
-  PIPSOLAR_SELECT(inverter_mode, QPIRI)
-
   void switch_command(const std::string &command);
   void setup() override;
   void loop() override;
