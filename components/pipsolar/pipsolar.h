@@ -3,6 +3,7 @@
 #include "esphome/components/binary_sensor/binary_sensor.h"
 #include "esphome/components/sensor/sensor.h"
 #include "esphome/components/switch/switch.h"
+#include "esphome/components/select/select.h"
 #include "esphome/components/text_sensor/text_sensor.h"
 #include "esphome/components/output/float_output.h"
 #include "esphome/components/uart/uart.h"
@@ -52,6 +53,8 @@ struct PollingCommand {
 #define PIPSOLAR_VALUED_TEXT_SENSOR(name, polling_command, value_type) \
   PIPSOLAR_VALUED_ENTITY_(text_sensor::TextSensor, name, polling_command, value_type)
 #define PIPSOLAR_TEXT_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(text_sensor::TextSensor, name, polling_command)
+#define PIPSOLAR_SELECT_SENSOR(name, polling_command) \
+  PIPSOLAR_ENTITY_(select::Select, name, polling_command)
 
 class Pipsolar : public uart::UARTDevice, public PollingComponent {
   // QPIGS values
