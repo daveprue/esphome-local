@@ -9,7 +9,9 @@ DEPENDENCIES = ["uart"]
 CONF_OUTPUT_SOURCE = "test_popup"
 
 TYPES = [
-    CONF_OUTPUT_SOURCE,
+    CONF_OUTPUT_SOURCE: select.select_schema(
+	options="[Option1,Option2,Option3]" 
+    ),
 ]
 
 CONFIG_SCHEMA = PIPSOLAR_COMPONENT_SCHEMA.extend(
