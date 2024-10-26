@@ -4,8 +4,6 @@
 #include "esphome/components/sensor/sensor.h"
 #include "esphome/components/switch/switch.h"
 #include "esphome/components/select/select.h"
-//#include "esphome/components/text_sensor/text_sensor.h"
-//#include "esphome/components/output/float_output.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/core/automation.h"
 #include "esphome/core/component.h"
@@ -50,9 +48,6 @@ struct PollingCommand {
 #define PIPSOLAR_SWITCH(name, polling_command) PIPSOLAR_ENTITY_(switch_::Switch, name, polling_command)
 #define PIPSOLAR_BINARY_SENSOR(name, polling_command, value_type) \
   PIPSOLAR_VALUED_ENTITY_(binary_sensor::BinarySensor, name, polling_command, value_type)
-//#define PIPSOLAR_VALUED_TEXT_SENSOR(name, polling_command, value_type) \
-//  PIPSOLAR_VALUED_ENTITY_(text_sensor::TextSensor, name, polling_command, value_type)
-//#define PIPSOLAR_TEXT_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(text_sensor::TextSensor, name, //polling_command)
 #define PIPSOLAR_SELECT_SENSOR(name, polling_command) \
   PIPSOLAR_ENTITY_(select::Select, name, polling_command)
 
