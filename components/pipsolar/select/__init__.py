@@ -15,7 +15,7 @@ TYPES = [
 ]
 
 CONFIG_SCHEMA = PIPSOLAR_COMPONENT_SCHEMA.extend(
-    {cv.Optional(type): select.select_schema() for type in TYPES}
+    {cv.Optional(type): schema for type, schema in TYPES.items()}
 )
 
 
