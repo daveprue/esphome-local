@@ -108,8 +108,7 @@ void Pipsolar::loop() {
           this->battery_float_voltage_->publish_state(value_battery_float_voltage_);
         }
         if (this->battery_type_) {
-          type = value_battery_type_;
-          this->device_mode_->publish_state(type);
+          this->device_mode_->publish_state(value_battery_type_);
         }
         if (this->current_max_ac_charging_current_) {
           this->current_max_ac_charging_current_->publish_state(value_current_max_ac_charging_current_);
