@@ -6,6 +6,7 @@ from .. import CONF_PIPSOLAR_ID, PIPSOLAR_COMPONENT_SCHEMA
 DEPENDENCIES = ["uart"]
 
 CONF_DEVICE_MODE = "device_mode"
+CONF_BATT_TYPE = "battery_type"
 CONF_LAST_QPIGS = "last_qpigs"
 CONF_LAST_QPIRI = "last_qpiri"
 CONF_LAST_QMOD = "last_qmod"
@@ -16,6 +17,7 @@ CONF_LAST_QMN = "last_qmn"
 
 TYPES = [
     CONF_DEVICE_MODE,
+    COONF_BATT_TYPE,
     CONF_LAST_QPIGS,
     CONF_LAST_QPIRI,
     CONF_LAST_QMOD,
