@@ -4,7 +4,7 @@
 #include "esphome/components/sensor/sensor.h"
 #include "esphome/components/switch/switch.h"
 #include "esphome/components/select/select.h"
-#include "esphome/components/text_sensor/text_sensor.h"
+//#include "esphome/components/text_sensor/text_sensor.h"
 #include "esphome/components/output/float_output.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/core/automation.h"
@@ -50,9 +50,9 @@ struct PollingCommand {
 #define PIPSOLAR_SWITCH(name, polling_command) PIPSOLAR_ENTITY_(switch_::Switch, name, polling_command)
 #define PIPSOLAR_BINARY_SENSOR(name, polling_command, value_type) \
   PIPSOLAR_VALUED_ENTITY_(binary_sensor::BinarySensor, name, polling_command, value_type)
-#define PIPSOLAR_VALUED_TEXT_SENSOR(name, polling_command, value_type) \
-  PIPSOLAR_VALUED_ENTITY_(text_sensor::TextSensor, name, polling_command, value_type)
-#define PIPSOLAR_TEXT_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(text_sensor::TextSensor, name, polling_command)
+//#define PIPSOLAR_VALUED_TEXT_SENSOR(name, polling_command, value_type) \
+//  PIPSOLAR_VALUED_ENTITY_(text_sensor::TextSensor, name, polling_command, value_type)
+//#define PIPSOLAR_TEXT_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(text_sensor::TextSensor, name, //polling_command)
 #define PIPSOLAR_SELECT_SENSOR(name, polling_command) \
   PIPSOLAR_ENTITY_(select::Select, name, polling_command)
 
@@ -103,7 +103,6 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_SENSOR(battery_bulk_voltage, QPIRI, float)
   PIPSOLAR_SENSOR(battery_float_voltage, QPIRI, float)
   PIPSOLAR_SENSOR(battery_type, QPIRI, int)
-//  PIPSOLAR_VALUED_TEXT_SENSOR(battery_type, QPIRI, char)
   PIPSOLAR_SENSOR(current_max_ac_charging_current, QPIRI, int)
   PIPSOLAR_SENSOR(current_max_charging_current, QPIRI, int)
   PIPSOLAR_SENSOR(input_voltage_range, QPIRI, int)
@@ -118,7 +117,7 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_SENSOR(pv_power_balance, QPIRI, int)
 
   // QMOD values
-  PIPSOLAR_VALUED_TEXT_SENSOR(device_mode, QMOD, char)
+  //PIPSOLAR_VALUED_TEXT_SENSOR(device_mode, QMOD, char)
 
   // QFLAG values
   PIPSOLAR_BINARY_SENSOR(silence_buzzer_open_buzzer, QFLAG, int)
@@ -169,13 +168,13 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_BINARY_SENSOR(warning_high_ac_input_during_bus_soft_start, QPIWS, bool)
   PIPSOLAR_BINARY_SENSOR(warning_battery_equalization, QPIWS, bool)
 
-  PIPSOLAR_TEXT_SENSOR(last_qpigs, QPIGS)
-  PIPSOLAR_TEXT_SENSOR(last_qpiri, QPIRI)
-  PIPSOLAR_TEXT_SENSOR(last_qmod, QMOD)
-  PIPSOLAR_TEXT_SENSOR(last_qflag, QFLAG)
-  PIPSOLAR_TEXT_SENSOR(last_qpiws, QPIWS)
-  PIPSOLAR_TEXT_SENSOR(last_qt, QT)
-  PIPSOLAR_TEXT_SENSOR(last_qmn, QMN)
+  //PIPSOLAR_TEXT_SENSOR(last_qpigs, QPIGS)
+  //PIPSOLAR_TEXT_SENSOR(last_qpiri, QPIRI)
+  //PIPSOLAR_TEXT_SENSOR(last_qmod, QMOD)
+  //PIPSOLAR_TEXT_SENSOR(last_qflag, QFLAG)
+  //PIPSOLAR_TEXT_SENSOR(last_qpiws, QPIWS)
+  //PIPSOLAR_TEXT_SENSOR(last_qt, QT)
+  //PIPSOLAR_TEXT_SENSOR(last_qmn, QMN)
 
   PIPSOLAR_SWITCH(output_source_priority_utility_switch, QPIRI)
   PIPSOLAR_SWITCH(output_source_priority_solar_switch, QPIRI)
