@@ -115,7 +115,7 @@ TYPES = {
         "MUCHGC0%02.0f"),
     CONF_CURRENT_MAX_CHARGING_CURRENT: (
         [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
-        "MCHGC1%02.0f"),
+        "MCHGC%02.0f"),
 #    CONF_CURRENT_MAX_CHARGING_CURRENT: (
 #        [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
 #        "MNCHGC0%03.0f"),
