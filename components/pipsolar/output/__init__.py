@@ -112,7 +112,7 @@ TYPES = {
         "PBT%02.0f"),
     CONF_CURRENT_MAX_AC_CHARGING_CURRENT: (
         [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
-        "MUCHGC0%02.0f"),
+        "MUCHGC%03.0f"),
     CONF_CURRENT_MAX_CHARGING_CURRENT: (
         [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
         "MCHGC%03.0f"),
