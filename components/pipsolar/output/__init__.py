@@ -38,6 +38,7 @@ CONF_CURRENT_MAX_CHARGING_CURRENT = "current_max_charging_current"
 CONF_OUTPUT_SOURCE_PRIORITY = "output_source_priority"
 CONF_CHARGER_SOURCE_PRIORITY = "charger_source_priority"
 CONF_BATTERY_REDISCHARGE_VOLTAGE = "battery_redischarge_voltage"
+CONF_INPUT_VOLTAGE_RANGE = "input_voltage_range"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -107,6 +108,9 @@ TYPES = {
     CONF_BATTERY_REDISCHARGE_VOLTAGE: (
         [0, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62],
         "PBDV%02.1f"),
+    CONF_INPUT_VOLTAGE_RANGE: (
+        [0, 1],
+        "PGR%02.0f"),
     CONF_BATTERY_TYPE: (
         [0, 1, 2], 
         "PBT%02.0f"),
