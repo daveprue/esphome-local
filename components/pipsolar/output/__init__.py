@@ -130,10 +130,10 @@ TYPES = {
         "PCP%02.0f"),
     CONF_ENABLE_RESTART_ON_OVERLOAD: (
         [0, 1],
-        "PEU"),
+        "PEu"),
     CONF_DISABLE_RESTART_ON_OVERLOAD: (
         [0, 1],
-        "PDU"),
+        "PDu"),
 
 }
 
