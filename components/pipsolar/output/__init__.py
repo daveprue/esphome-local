@@ -128,10 +128,10 @@ TYPES = {
     CONF_CHARGER_SOURCE_PRIORITY: (
         [0, 1, 2, 3], 
         "PCP%02.0f"),
-    CONF_RESTART_ON_OVERLOAD_ON: {
+    CONF_RESTART_ON_OVERLOAD_ON: (
         [0, 1],
         "PEU"),
-    CONF_RESTART_ON_OVERLOAD_OFF: {
+    CONF_RESTART_ON_OVERLOAD_OFF: (
         [0, 1],
         "PDU"),
 
