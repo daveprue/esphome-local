@@ -39,7 +39,8 @@ CONF_OUTPUT_SOURCE_PRIORITY = "output_source_priority"
 CONF_CHARGER_SOURCE_PRIORITY = "charger_source_priority"
 CONF_BATTERY_REDISCHARGE_VOLTAGE = "battery_redischarge_voltage"
 CONF_INPUT_VOLTAGE_RANGE = "input_voltage_range"
-CONF_RESTART_ON_OVERLOAD = "restart_on_overload"
+CONF_RESTART_ON_OVERLOAD_ON = "enable_restart_on_overload"
+CONF_RESTART_ON_OVERLOAD_OFF = "disable_restart_on_overload"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -127,9 +128,12 @@ TYPES = {
     CONF_CHARGER_SOURCE_PRIORITY: (
         [0, 1, 2, 3], 
         "PCP%02.0f"),
-    CONF_RESTART_ON_OVERLOAD: {
+    CONF_RESTART_ON_OVERLOAD_ON: {
         [0, 1],
-        "P%CU"),
+        "PEU"),
+    CONF_RESTART_ON_OVERLOAD_OFF: {
+        [0, 1],
+        "PDU"),
 
 }
 
