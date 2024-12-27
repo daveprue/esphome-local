@@ -49,6 +49,8 @@ CONF_ENABLE_RESTART_ON_OVER_TEMP = "enable_restart_on_over_temp"
 CONF_DISABLE_RESTART_ON_OVER_TEMP = "disable_restart_on_over_temp"
 CONF_ENABLE_BACKLIGHT = "enable_backlight"
 CONF_DISABLE_BACKLIGHT = "disable_backlight"
+CONF_ENABLE_TONES = "enable_tones"
+CONF_DISABLE_TONES = "disable_tones"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -166,6 +168,12 @@ TYPES = {
     CONF_DISABLE_BACKLIGHT: (
         [0, 1],
         "PDx"),
+    CONF_ENABLE_TONES: (
+        [0, 1],
+        "PEa"),
+    CONF_DISABLE_TONES: (
+        [0, 1],
+        "PDa"),
 
 }
 
