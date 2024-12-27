@@ -43,6 +43,8 @@ CONF_ENABLE_RESTART_ON_OVERLOAD = "enable_restart_on_overload"
 CONF_DISABLE_RESTART_ON_OVERLOAD = "disable_restart_on_overload"
 CONF_ENABLE_BYPASS_ON_OVERLOAD = "enable_bypass_on_overload"
 CONF_DISABLE_BYPASS_ON_OVERLOAD = "disable_bypass_on_overload"
+CONF_ENABLE_MENU_RETURNS_HOME = "enable_menu_returns_home"
+CONF_DISABLE_MENU_RETURNS_HOME = "disable_menu_returns_home"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -142,6 +144,12 @@ TYPES = {
     CONF_DISABLE_BYPASS_ON_OVERLOAD: (
         [0, 1],
         "PDb"),
+    CONF_ENABLE_MENU_RETURNS_HOME: (
+        [0, 1],
+        "PEk"),
+    CONF_DISABLE_MENU_RETURNS_HOME: (
+        [0, 1],
+        "PDk"),
 
 }
 
