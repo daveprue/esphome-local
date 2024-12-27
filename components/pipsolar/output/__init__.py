@@ -47,6 +47,8 @@ CONF_ENABLE_MENU_RETURNS_HOME = "enable_menu_returns_home"
 CONF_DISABLE_MENU_RETURNS_HOME = "disable_menu_returns_home"
 CONF_ENABLE_RESTART_ON_OVER_TEMP = "enable_restart_on_over_temp"
 CONF_DISABLE_RESTART_ON_OVER_TEMP = "disable_restart_on_over_temp"
+CONF_ENABLE_BACKLIGHT = "enable_backlight"
+CONF_DISABLE_BACKLIGHT = "disable_backlight"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -158,6 +160,13 @@ TYPES = {
     CONF_DISABLE_RESTART_ON_OVER_TEMP: (
         [0, 1],
         "PDv"),
+    CONF_ENABLE_BACKLIGHT: (
+        [0, 1],
+        "PEx"),
+    CONF_DISABLE_BACKLIGHT: (
+        [0, 1],
+        "PDx"),
+
 }
 
 CONFIG_SCHEMA = PIPSOLAR_COMPONENT_SCHEMA.extend(
