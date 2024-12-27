@@ -41,6 +41,8 @@ CONF_BATTERY_REDISCHARGE_VOLTAGE = "battery_redischarge_voltage"
 CONF_INPUT_VOLTAGE_RANGE = "input_voltage_range"
 CONF_ENABLE_RESTART_ON_OVERLOAD = "enable_restart_on_overload"
 CONF_DISABLE_RESTART_ON_OVERLOAD = "disable_restart_on_overload"
+CONF_ENABLE_BYPASS_ON_OVERLOAD = "enable_bypass_on_overload"
+CONF_DISABLE_BYPASS_ON_OVERLOAD = "disable_bypass_on_overload"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -134,6 +136,12 @@ TYPES = {
     CONF_DISABLE_RESTART_ON_OVERLOAD: (
         [0, 1],
         "PDu"),
+    CONF_ENABLE_BYPASS_ON_OVERLOAD: (
+        [0, 1],
+        "PEb"),
+    CONF_DISABLE_BYPASS_ON_OVERLOAD: (
+        [0, 1],
+        "PDb"),
 
 }
 
