@@ -45,6 +45,8 @@ CONF_ENABLE_BYPASS_ON_OVERLOAD = "enable_bypass_on_overload"
 CONF_DISABLE_BYPASS_ON_OVERLOAD = "disable_bypass_on_overload"
 CONF_ENABLE_MENU_RETURNS_HOME = "enable_menu_returns_home"
 CONF_DISABLE_MENU_RETURNS_HOME = "disable_menu_returns_home"
+CONF_ENABLE_RESTART_ON_OVER_TEMP = "enable_restart_on_over_temp"
+CONF_DISABLE_RESTART_ON_OVER_TEMP = "disable_restart_on_over_temp"
 
 TYPES = {
     CONF_BATTERY_BULK_VOLTAGE: (
@@ -150,7 +152,12 @@ TYPES = {
     CONF_DISABLE_MENU_RETURNS_HOME: (
         [0, 1],
         "PDk"),
-
+    CONF_ENABLE_RESTART_ON_OVER_TEMP: (
+        [0, 1],
+        "PEv"),
+    CONF_DISABLE_RESTART_ON_OVER_TEMP: (
+        [0, 1],
+        "PDv"),
 }
 
 CONFIG_SCHEMA = PIPSOLAR_COMPONENT_SCHEMA.extend(
