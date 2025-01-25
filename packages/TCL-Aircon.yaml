@@ -7,17 +7,6 @@ external_components:
     components: [ tclac ]
     refresh: 30s
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: IP Address
-    ssid:
-      name: SSID
-    mac_address:
-      name: Mac Address
-    dns_address:
-      name: DNS
-
 # Allow provisioning Wi-Fi via serial
 improv_serial:
 
@@ -25,7 +14,7 @@ esp32_improv:
   authorizer: none
 
 logger:
-  level: DEBUG
+  level: ERROR
 
 web_server:
 
