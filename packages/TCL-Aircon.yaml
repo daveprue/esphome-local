@@ -1,7 +1,7 @@
 
 external_components:
   - source:
-      url: https://github.com/daveprue/esphome-aircon.git
+      url: https://github.com/daveprue/esphome-local.git
       type: git
       ref: main
     components: [ tclac ]
