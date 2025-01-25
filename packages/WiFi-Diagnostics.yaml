@@ -1,0 +1,11 @@
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+    ssid:
+      name: SSID
+    mac_address:
+      name: Mac Address
+    dns_address:
+      name: DNS
+
