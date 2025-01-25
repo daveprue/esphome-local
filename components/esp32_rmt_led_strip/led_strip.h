@@ -12,11 +12,11 @@
 #include <esp_err.h>
 #include <esp_idf_version.h>
 
-#if ESP_IDF_VERSION_MAJOR >= 5
+//#if ESP_IDF_VERSION_MAJOR >= 5
 #include <driver/rmt_tx.h>
-#else
-#include <driver/rmt.h>
-#endif
+//#else
+//#include <driver/rmt.h>
+//#endif
 
 namespace esphome {
 namespace esp32_rmt_led_strip {
