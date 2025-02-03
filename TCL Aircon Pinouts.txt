@@ -1,0 +1,4 @@
+Red	TXD (17)	USB Pin 1
+White	RXD (16)	USB Pin 2
+Green	Ground		USB Pin 3
+Black	+5V		USB Pin 4
