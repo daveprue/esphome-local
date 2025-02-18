@@ -1,0 +1,157 @@
+
+external_components:
+  - source:
+      url: https://github.com/daveprue/esphome-local.git
+      type: git
+      ref: main
+    components: [ jbd-bms ]
+    refresh: 30s
+
+
+jbd_bms:
+  - id: bms0
+    update_interval: 6s
+    rx_timeout: ${rx_timeout}
+
+button:
+  - platform: jbd_bms
+    jbd_bms_id: bms0
+    retrieve_hardware_version:
+      name: "Retrieve HW Version"
+
+binary_sensor:
+  - platform: jbd_bms
+    jbd_bms_id: bms0
+    balancing:
+      name: "Balance"
+    charging:
+      name: "Charge"
+    discharging:
+      name: "Discharge"
+    online_status:
+      name: "Online Status"
+
+sensor:
+  - platform: jbd_bms
+    jbd_bms_id: bms0
+    battery_strings:
+      name: "Cell Count"
+    current:
+      name: "Current"
+    power:
+      name: "Power"
+    charging_power:
+      name: "Charging Power"
+    discharging_power:
+      name: "Discharging Power"
+    state_of_charge:
+      name: "State of Charge"
+    nominal_capacity:
+      name: "Capacity"
+    charging_cycles:
+      name: "Cycles"
+    capacity_remaining:
+      name: "Capacity Remaining"
+#    battery_cycle_capacity:
+#      name: "${name} battery cycle capacity"
+    total_voltage:
+      name: "Pack Voltage"
+    average_cell_voltage:
+      name: "Cell Avg Voltage"
+    delta_cell_voltage:
+      name: "Cell Deviation"
+    min_cell_voltage:
+      name: "Cell Min Voltage"
+    max_cell_voltage:
+      name: "Cell Max Voltage"
+    min_voltage_cell:
+      name: "Min Voltage Cell"
+    max_voltage_cell:
+      name: "Max Voltage Cell"
+    temperature_1:
+      name: "temperature 1"
+    temperature_2:
+      name: "temperature 2"
+    cell_voltage_1:
+      name: "Cell Voltage 1"
+    cell_voltage_2:
+      name: "Cell Voltage 2"
+    cell_voltage_3:
+      name: "Cell Voltage 3"
+    cell_voltage_4:
+      name: "Cell Voltage 4"
+    # operation_status_bitmask:
+    #   name: "${name} operation status bitmask"
+    # errors_bitmask:
+    #   name: "${name} errors bitmask"
+    # balancer_status_bitmask:
+    #   name: "${name} balancer status bitmask"
+    # software_version:
+    #   name: "${name} software version"
+    # short_circuit_error_count:
+    #   name: "${name} short circuit error count"
+    # charge_overcurrent_error_count:
+    #   name: "${name} charge overcurrent error count"
+    # discharge_overcurrent_error_count:
+    #   name: "${name} discharge overcurrent error count"
+    # cell_overvoltage_error_count:
+    #   name: "${name} cell overvoltage error count"
+    # cell_undervoltage_error_count:
+    #   name: "${name} cell undervoltage error count"
+    # charge_overtemperature_error_count:
+    #   name: "${name} charge overtemperature error count"
+    # charge_undertemperature_error_count:
+    #   name: "${name} charge undertemperature error count"
+    # discharge_overtemperature_error_count:
+    #   name: "${name} discharge overtemperature error count"
+    # discharge_undertemperature_error_count:
+    #   name: "${name} discharge undertemperature error count"
+    # battery_overvoltage_error_count:
+    #   name: "${name} battery overvoltage error count"
+    # battery_undervoltage_error_count:
+    #   name: "${name} battery undervoltage error count"
+
+text_sensor:
+  - platform: jbd_bms
+    jbd_bms_id: bms0
+    errors:
+      name: "Errors"
+#    operation_status:
+#      name: "Operation Status"
+#    device_model:
+#      name: "Device Model"
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+    ssid:
+      name: SSID
+    mac_address:
+      name: Mac Address
+    dns_address:
+      name: DNS
+
+select:
+  - platform: jbd_bms
+    jbd_bms_id: bms0
+    read_eeprom_register:
+      name: "Read Register"
+      id: read_eeprom_register0
+      optionsmap:
+        0xAA: "Error Counts"
+
+switch:
+  - platform: jbd_bms
+    jbd_bms_id: bms0
+    charging:
+      name: "Charge"
+    discharging:
+      name: "Discharge"
+
+# Uncomment this section if you want to update the error count sensors periodically
+#
+# interval:
+#   - interval: 30min
+#     then:
+#       - select.set:
+#           id: read_eeprom_register0
+#           option: "Error Counts"
