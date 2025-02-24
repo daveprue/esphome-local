@@ -41,7 +41,7 @@ esphome:
   min_version: 2023.3.0
   project:
     name: "Dave Prue.TCL Air Conditioner"
-    version: X-1
+    version: G
 
   on_boot:
     priority: -100
