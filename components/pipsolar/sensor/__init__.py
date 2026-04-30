@@ -272,8 +272,31 @@ CONFIG_SCHEMA = PIPSOLAR_COMPONENT_SCHEMA.extend(
 async def to_code(config):
     paren = await cg.get_variable(config[CONF_PIPSOLAR_ID])
 
-    for type, _ in TYPES.items():
+    for type, (_, command) in TYPES.items():
         if type in config:
             conf = config[type]
-            sens = await sensor.new_sensor(conf)
-            cg.add(getattr(paren, f"set_{type}")(sens))
+            var = cg.new_Pvariable(conf[CONF_ID])
+            await output.register_output(var, conf)
+            cg.add(var.set_parent(paren))
+            cg.add(var.set_set_command(command))
+            if (CONF_POSSIBLE_VALUES) in conf:
+                cg.add(var.set_possible_values(conf[CONF_POSSIBLE_VALUES]))
+
+
+@automation.register_action(
+    "output.pipsolar.set_level",
+    SetOutputAction,
+    cv.Schema(
+        {
+            cv.Required(CONF_ID): cv.use_id(PipsolarOutput),
+            cv.Required(CONF_VALUE): cv.templatable(cv.positive_float),
+        }
+    ),
+    synchronous=True,
+)
+async def output_pipsolar_set_level_to_code(config, action_id, template_arg, args):
+    paren = await cg.get_variable(config[CONF_ID])
+    var = cg.new_Pvariable(action_id, template_arg, paren)
+    template_ = await cg.templatable(config[CONF_VALUE], args, cg.float_)
+    cg.add(var.set_level(template_))
+    return var
