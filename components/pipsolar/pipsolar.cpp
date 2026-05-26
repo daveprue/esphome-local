@@ -210,11 +210,11 @@ void Pipsolar::loop() {
         if (this->inverter_heat_sink_temperature_) {
           this->inverter_heat_sink_temperature_->publish_state(value_inverter_heat_sink_temperature_);
         }
-        if (this->pv_input_current_for_battery_) {
-          this->pv_input_current_for_battery_->publish_state(value_pv_input_current_for_battery_);
+        if (this->pv1_input_current_) {
+          this->pv1_input_current_->publish_state(value_pv1_input_current_);
         }
-        if (this->pv_input_voltage_) {
-          this->pv_input_voltage_->publish_state(value_pv_input_voltage_);
+        if (this->pv1_input_voltage_) {
+          this->pv1_input_voltage_->publish_state(value_pv1_input_voltage_);
         }
         if (this->battery_voltage_scc_) {
           this->battery_voltage_scc_->publish_state(value_battery_voltage_scc_);
@@ -250,8 +250,8 @@ void Pipsolar::loop() {
         if (this->battery_voltage_offset_for_fans_on_) {
           this->battery_voltage_offset_for_fans_on_->publish_state(value_battery_voltage_offset_for_fans_on_ / 10.0f);
         }  //.1 scale
-        if (this->eeprom_version_) {
-          this->eeprom_version_->publish_state(value_eeprom_version_);
+        if (this->pv2_input_current) {
+          this->pv2_input_current->publish_state(value_pv2_input_current_);
         }
         if (this->pv_charging_power_) {
           this->pv_charging_power_->publish_state(value_pv_charging_power_);
@@ -267,6 +267,7 @@ void Pipsolar::loop() {
         }
         this->state_ = STATE_IDLE;
         break;
+
       case POLLING_QMOD:
         if (this->device_mode_) {
           mode = value_device_mode_;
@@ -274,6 +275,7 @@ void Pipsolar::loop() {
         }
         this->state_ = STATE_IDLE;
         break;
+
       case POLLING_QFLAG:
         if (this->silence_buzzer_open_buzzer_) {
           this->silence_buzzer_open_buzzer_->publish_state(value_silence_buzzer_open_buzzer_);
@@ -304,6 +306,7 @@ void Pipsolar::loop() {
         }
         this->state_ = STATE_IDLE;
         break;
+
       case POLLING_QPIWS:
         if (this->warnings_present_) {
           this->warnings_present_->publish_state(value_warnings_present_);
@@ -448,6 +451,7 @@ void Pipsolar::loop() {
         }
         this->state_ = STATE_POLL_DECODED;
         break;
+
       case POLLING_QPIGS:
         ESP_LOGD(TAG, "Decode QPIGS");
         sscanf(                                                                                              // NOLINT
@@ -458,12 +462,12 @@ void Pipsolar::loop() {
             &value_ac_output_apparent_power_, &value_ac_output_active_power_, &value_output_load_percent_,   // NOLINT
             &value_bus_voltage_, &value_battery_voltage_, &value_battery_charging_current_,                  // NOLINT
             &value_battery_capacity_percent_, &value_inverter_heat_sink_temperature_,                        // NOLINT
-            &value_pv_input_current_for_battery_, &value_pv_input_voltage_, &value_battery_voltage_scc_,     // NOLINT
+            &value_pv1_input_current_, &value_pv1_input_voltage_, &value_battery_voltage_scc_,     // NOLINT
             &value_battery_discharge_current_, &value_add_sbu_priority_version_,                             // NOLINT
             &value_configuration_status_, &value_scc_firmware_version_, &value_load_status_,                 // NOLINT
             &value_battery_voltage_to_steady_while_charging_, &value_charging_status_,                       // NOLINT
             &value_scc_charging_status_, &value_ac_charging_status_,                                         // NOLINT
-            &value_battery_voltage_offset_for_fans_on_, &value_eeprom_version_, &value_pv_charging_power_,   // NOLINT
+            &value_battery_voltage_offset_for_fans_on_, &value_pv2_input_current_, &value_pv_charging_power_,   // NOLINT
             &value_charging_to_floating_mode_, &value_switch_on_,                                            // NOLINT
             &value_dustproof_installed_);                                                                    // NOLINT
         if (this->last_qpigs_) {
