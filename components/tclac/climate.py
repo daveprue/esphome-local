@@ -188,7 +188,7 @@ TCLAC_ACTION_BASE_SCHEMA = automation.maybe_simple_id({cv.GenerateID(CONF_ID): c
 )
 
 @automation.register_action(
-    "climate.tclac.display_off", DisplayOffAction, cv.Schema
+    "climate.tclac.display_off", DisplayOffAction, cv.Schema, synchronous=False
 )
 async def display_action_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -197,10 +197,10 @@ async def display_action_to_code(config, action_id, template_arg, args):
 
 # Регистрация событий включения и отключения пищалки кондиционера
 @automation.register_action(
-    "climate.tclac.beeper_on", BeeperOnAction, cv.Schema
+    "climate.tclac.beeper_on", BeeperOnAction, cv.Schema, synchronous=False
 )
 @automation.register_action(
-    "climate.tclac.beeper_off", BeeperOffAction, cv.Schema
+    "climate.tclac.beeper_off", BeeperOffAction, cv.Schema, synchronous=False
 )
 async def beeper_action_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -209,10 +209,10 @@ async def beeper_action_to_code(config, action_id, template_arg, args):
 
 # Регистрация событий включения и отключения светодиодов связи модуля
 @automation.register_action(
-    "climate.tclac.module_display_on", ModuleDisplayOnAction, cv.Schema
+    "climate.tclac.module_display_on", ModuleDisplayOnAction, cv.Schema, synchronous=False
 )
 @automation.register_action(
-    "climate.tclac.module_display_off", ModuleDisplayOffAction, cv.Schema
+    "climate.tclac.module_display_off", ModuleDisplayOffAction, cv.Schema, synchronous=False
 )
 async def module_display_action_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -221,10 +221,10 @@ async def module_display_action_to_code(config, action_id, template_arg, args):
     
 # Регистрация событий включения и отключения принудительного применения настроек
 @automation.register_action(
-    "climate.tclac.force_mode_on", ForceOnAction, cv.Schema
+    "climate.tclac.force_mode_on", ForceOnAction, cv.Schema, synchronous=False
 )
 @automation.register_action(
-    "climate.tclac.force_mode_off", ForceOffAction, cv.Schema
+    "climate.tclac.force_mode_off", ForceOffAction, cv.Schema, synchronous=False
 )
 async def force_mode_action_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -241,6 +241,7 @@ async def force_mode_action_to_code(config, action_id, template_arg, args):
             cv.Required(CONF_VERTICAL_AIRFLOW): cv.templatable(cv.enum(AIRFLOW_VERTICAL_DIRECTION_OPTIONS, upper=True)),
         }
     ),
+    synchronous=False
 )
 async def tclac_set_vertical_airflow_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -262,6 +263,7 @@ async def tclac_set_vertical_airflow_to_code(config, action_id, template_arg, ar
             cv.Required(CONF_HORIZONTAL_AIRFLOW): cv.templatable(cv.enum(AIRFLOW_HORIZONTAL_DIRECTION_OPTIONS, upper=True)),
         }
     ),
+    synchronous=False
 )
 async def tclac_set_horizontal_airflow_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -281,6 +283,7 @@ async def tclac_set_horizontal_airflow_to_code(config, action_id, template_arg, 
             cv.Required(CONF_VERTICAL_SWING_MODE): cv.templatable(cv.enum(VERTICAL_SWING_DIRECTION_OPTIONS, upper=True)),
         }
     ),
+    synchronous=False
 )
 async def tclac_set_vertical_swing_direction_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
@@ -300,6 +303,7 @@ async def tclac_set_vertical_swing_direction_to_code(config, action_id, template
             cv.Required(CONF_HORIZONTAL_SWING_MODE): cv.templatable(cv.enum(HORIZONTAL_SWING_DIRECTION_OPTIONS, upper=True)),
         }
     ),
+    synchronous=False
 )
 async def tclac_set_horizontal_swing_direction_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
