@@ -185,7 +185,8 @@ TCLAC_ACTION_BASE_SCHEMA = automation.maybe_simple_id({cv.GenerateID(CONF_ID): c
 # Регистрация событий включения и отключения дисплея кондиционера
 @automation.register_action(
     "climate.tclac.display_on", DisplayOnAction, cv.Schema
-)
+) synchronous=False
+
 @automation.register_action(
     "climate.tclac.display_off", DisplayOffAction, cv.Schema
 )
