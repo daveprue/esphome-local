@@ -283,7 +283,7 @@ async def to_code(config):
                 cg.add(var.set_possible_values(conf[CONF_POSSIBLE_VALUES]))
 
 
-@automation.register_action(
+@register_action(
     "output.pipsolar.set_level",
     SetOutputAction,
     cv.Schema(
