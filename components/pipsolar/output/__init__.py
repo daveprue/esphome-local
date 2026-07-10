@@ -31,6 +31,7 @@ CONF_POSSIBLE_VALUES = "possible_values"
 
 CONF_BATTERY_RECHARGE_VOLTAGE = "battery_recharge_voltage"
 CONF_BATTERY_UNDER_VOLTAGE = "battery_under_voltage"
+CONF_BATTERY_BULK_VOLTAGE = "battery_bulk_voltage"
 CONF_BATTERY_FLOAT_VOLTAGE = "battery_float_voltage"
 CONF_BATTERY_TYPE = "battery_type"
 CONF_CURRENT_MAX_AC_CHARGING_CURRENT = "current_max_ac_charging_current"
@@ -38,26 +39,143 @@ CONF_CURRENT_MAX_CHARGING_CURRENT = "current_max_charging_current"
 CONF_OUTPUT_SOURCE_PRIORITY = "output_source_priority"
 CONF_CHARGER_SOURCE_PRIORITY = "charger_source_priority"
 CONF_BATTERY_REDISCHARGE_VOLTAGE = "battery_redischarge_voltage"
+CONF_INPUT_VOLTAGE_RANGE = "input_voltage_range"
+CONF_ENABLE_RESTART_ON_OVERLOAD = "enable_restart_on_overload"
+CONF_DISABLE_RESTART_ON_OVERLOAD = "disable_restart_on_overload"
+CONF_ENABLE_BYPASS_ON_OVERLOAD = "enable_bypass_on_overload"
+CONF_DISABLE_BYPASS_ON_OVERLOAD = "disable_bypass_on_overload"
+CONF_ENABLE_MENU_RETURNS_HOME = "enable_menu_returns_home"
+CONF_DISABLE_MENU_RETURNS_HOME = "disable_menu_returns_home"
+CONF_ENABLE_RESTART_ON_OVER_TEMP = "enable_restart_on_over_temp"
+CONF_DISABLE_RESTART_ON_OVER_TEMP = "disable_restart_on_over_temp"
+CONF_ENABLE_BACKLIGHT = "enable_backlight"
+CONF_DISABLE_BACKLIGHT = "disable_backlight"
+CONF_ENABLE_TONES = "enable_tones"
+CONF_DISABLE_TONES = "disable_tones"
 
 TYPES = {
-    CONF_BATTERY_RECHARGE_VOLTAGE: (
-        [44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0],
-        "PBCV%02.1f",
-    ),
+    CONF_BATTERY_BULK_VOLTAGE: (
+        [48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6, 48.7, 48.8, 48.9, 
+         49.0, 49.1, 49.2, 49.3, 49.4, 49.5, 49.6, 49.7, 49.8, 49.9, 
+         50.0, 50.1, 50.2, 50.3, 50.4, 50.5, 50.6, 50.7, 50.8, 50.9, 
+         51.0, 51.1, 51.2, 51.3, 51.4, 51.5, 51.6, 51.7, 51.8, 51.9, 
+         52.0, 52.1, 52.2, 52.3, 52.4, 52.5, 52.6, 52.7, 52.8, 52.9, 
+         53.0, 53.1, 53.2, 53.3, 53.4, 53.5, 53.6, 53.7, 53.8, 53.9, 
+         54.0, 54.1, 54.2, 54.3, 54.4, 54.5, 54.6, 54.7, 54.8, 54.9, 
+         55.0, 55.1, 55.2, 55.3, 55.4, 55.5, 55.6, 55.7, 55.8, 55.9, 
+         56.0, 56.1, 56.2, 56.3, 56.4, 56.5, 56.6, 56.7, 56.8, 56.9, 
+         57.0, 57.1, 57.2, 57.3, 57.4, 57.5, 57.6, 57.7, 57.8, 57.9, 
+         58.0, 58.1, 58.2, 58.3, 58.4, 58.5, 58.6, 58.7, 58.8, 58.9, 
+         59.0, 59.1, 59.2, 59.3, 59.4, 59.5, 59.6, 59.7, 59.8, 59.9, 
+         60.0, 60.1, 60.2, 60.3, 60.4, 60.5, 60.6, 60.7, 60.8, 60.9, 
+         61.0, 61.1, 61.2, 61.3, 61.4, 61.5, 61.6, 61.7, 61.8, 61.9, 62.0], 
+        "PCVV%02.1f"),
+    CONF_BATTERY_FLOAT_VOLTAGE: (
+        [48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6, 48.7, 48.8, 48.9, 
+         49.0, 49.1, 49.2, 49.3, 49.4, 49.5, 49.6, 49.7, 49.8, 49.9, 
+         50.0, 50.1, 50.2, 50.3, 50.4, 50.5, 50.6, 50.7, 50.8, 50.9, 
+         51.0, 51.1, 51.2, 51.3, 51.4, 51.5, 51.6, 51.7, 51.8, 51.9, 
+         52.0, 52.1, 52.2, 52.3, 52.4, 52.5, 52.6, 52.7, 52.8, 52.9, 
+         53.0, 53.1, 53.2, 53.3, 53.4, 53.5, 53.6, 53.7, 53.8, 53.9, 
+         54.0, 54.1, 54.2, 54.3, 54.4, 54.5, 54.6, 54.7, 54.8, 54.9, 
+         55.0, 55.1, 55.2, 55.3, 55.4, 55.5, 55.6, 55.7, 55.8, 55.9, 
+         56.0, 56.1, 56.2, 56.3, 56.4, 56.5, 56.6, 56.7, 56.8, 56.9, 
+         57.0, 57.1, 57.2, 57.3, 57.4, 57.5, 57.6, 57.7, 57.8, 57.9, 
+         58.0, 58.1, 58.2, 58.3, 58.4, 58.5, 58.6, 58.7, 58.8, 58.9, 
+         59.0, 59.1, 59.2, 59.3, 59.4, 59.5, 59.6, 59.7, 59.8, 59.9, 
+         60.0, 60.1, 60.2, 60.3, 60.4, 60.5, 60.6, 60.7, 60.8, 60.9, 
+         61.0, 61.1, 61.2, 61.3, 61.4, 61.5, 61.6, 61.7, 61.8, 61.9, 62.0], 
+        "PBFT%02.1f"),
     CONF_BATTERY_UNDER_VOLTAGE: (
-        [40.0, 40.1, 42, 43, 44, 45, 46, 47, 48.0],
-        "PSDV%02.1f",
-    ),
-    CONF_BATTERY_FLOAT_VOLTAGE: ([48.0, 49.0, 50.0, 51.0], "PBFT%02.1f"),
-    CONF_BATTERY_TYPE: ([0, 1, 2], "PBT%02.0f"),
-    CONF_CURRENT_MAX_AC_CHARGING_CURRENT: ([2, 10, 20], "MUCHGC0%02.0f"),
-    CONF_CURRENT_MAX_CHARGING_CURRENT: ([10, 20, 30, 40], "MCHGC0%02.0f"),
-    CONF_OUTPUT_SOURCE_PRIORITY: ([0, 1, 2], "POP%02.0f"),
-    CONF_CHARGER_SOURCE_PRIORITY: ([0, 1, 2, 3], "PCP%02.0f"),
+        [40.0, 40.1, 40.2, 40.3, 40.4, 40.5, 40.6, 40.7, 40.8, 40.9, 
+         41.0, 41.1, 41.2, 41.3, 41.4, 41.5, 41.6, 41.7, 41.8, 41.9, 
+         42.0, 42.1, 42.2, 42.3, 42.4, 42.5, 42.6, 42.7, 42.8, 42.9, 
+         43.0, 43.1, 43.2, 43.3, 43.4, 43.5, 43.6, 43.7, 43.8, 43.9, 
+         44.0, 44.1, 44.2, 44.3, 44.4, 44.5, 44.6, 44.7, 44.8, 44.9, 
+         45.0, 45.1, 45.2, 45.3, 45.4, 45.5, 45.6, 45.7, 45.8, 45.9, 
+         46.0, 46.1, 46.2, 46.3, 46.4, 46.5, 46.6, 46.7, 46.8, 46.9, 
+         47.0, 47.1, 47.2, 47.3, 47.4, 47.5, 47.6, 47.7, 47.8, 47.9, 
+         48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6, 48.7, 48.8, 48.9, 
+         49.0, 49.1, 49.2, 49.3, 49.4, 49.5, 49.6, 49.7, 49.8, 49.9, 
+         50.0, 50.1, 50.2, 50.3, 50.4, 50.5, 50.6, 50.7, 50.8, 50.9, 
+         51.0, 51.1, 51.2, 51.3, 51.4, 51.5, 51.6, 51.7, 51.8, 51.9, 
+         52.0, 52.1, 52.2, 52.3, 52.4, 52.5, 52.6, 52.7, 52.8, 52.9, 
+         53.0, 53.1, 53.2, 53.3, 53.4, 53.5, 53.6, 53.7, 53.8, 53.9, 54.0],
+        "PSDV%02.1f"),
+    CONF_BATTERY_RECHARGE_VOLTAGE: (
+        [44.0, 44.1, 44.2, 44.3, 44.4, 44.5, 44.6, 44.7, 44.8, 44.9, 
+         45.0, 45.1, 45.2, 45.3, 45.4, 45.5, 45.6, 45.7, 45.8, 45.9, 
+         46.0, 46.1, 46.2, 46.3, 46.4, 46.5, 46.6, 46.7, 46.8, 46.9, 
+         47.0, 47.1, 47.2, 47.3, 47.4, 47.5, 47.6, 47.7, 47.8, 47.9, 
+         48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6, 48.7, 48.8, 48.9, 
+         49.0, 49.1, 49.2, 49.3, 49.4, 49.5, 49.6, 49.7, 49.8, 49.9, 
+         50.0, 50.1, 50.2, 50.3, 50.4, 50.5, 50.6, 50.7, 50.8, 50.9, 
+         51.0, 51.1, 51.2, 51.3, 51.4, 51.5, 51.6, 51.7, 51.8, 51.9, 
+         52.0, 52.1, 52.2, 52.3, 52.4, 52.5, 52.6, 52.7, 52.8, 52.9, 
+         53.0, 53.1, 53.2, 53.3, 53.4, 53.5, 53.6, 53.7, 53.8, 53.9,
+         54.0, 54.1, 54.2, 54.3, 54.4, 54.5, 54.6, 54.7, 54.8, 54.9,
+         55.0, 55.1, 55.2, 55.3, 55.4, 55.5, 55.6, 55.7, 55.8, 55.9,
+         56.0, 56.1, 56.2, 56.3, 56.4, 56.5, 56.6, 56.7, 56.8, 56.9,
+         57.0, 57.1, 57.2],
+        "PBCV%02.1f"),
     CONF_BATTERY_REDISCHARGE_VOLTAGE: (
-        [0, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58],
-        "PBDV%02.1f",
-    ),
+        [0, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62],
+        "PBDV%02.1f"),
+    CONF_INPUT_VOLTAGE_RANGE: (
+        [0, 1],
+        "PGR%02.0f"),
+    CONF_BATTERY_TYPE: (
+        [0, 1, 2], 
+        "PBT%02.0f"),
+    CONF_CURRENT_MAX_AC_CHARGING_CURRENT: (
+        [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
+        "MUCHGC%03.0f"),
+    CONF_CURRENT_MAX_CHARGING_CURRENT: (
+        [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
+        "MCHGC%03.0f"),
+    CONF_OUTPUT_SOURCE_PRIORITY: (
+        [0, 1, 2], 
+        "POP%02.0f"),
+    CONF_CHARGER_SOURCE_PRIORITY: (
+        [0, 1, 2, 3], 
+        "PCP%02.0f"),
+    CONF_ENABLE_RESTART_ON_OVERLOAD: (
+        [0, 1],
+        "PEu"),
+    CONF_DISABLE_RESTART_ON_OVERLOAD: (
+        [0, 1],
+        "PDu"),
+    CONF_ENABLE_BYPASS_ON_OVERLOAD: (
+        [0, 1],
+        "PEb"),
+    CONF_DISABLE_BYPASS_ON_OVERLOAD: (
+        [0, 1],
+        "PDb"),
+    CONF_ENABLE_MENU_RETURNS_HOME: (
+        [0, 1],
+        "PEk"),
+    CONF_DISABLE_MENU_RETURNS_HOME: (
+        [0, 1],
+        "PDk"),
+    CONF_ENABLE_RESTART_ON_OVER_TEMP: (
+        [0, 1],
+        "PEv"),
+    CONF_DISABLE_RESTART_ON_OVER_TEMP: (
+        [0, 1],
+        "PDv"),
+    CONF_ENABLE_BACKLIGHT: (
+        [0, 1],
+        "PEx"),
+    CONF_DISABLE_BACKLIGHT: (
+        [0, 1],
+        "PDx"),
+    CONF_ENABLE_TONES: (
+        [0, 1],
+        "PEa"),
+    CONF_DISABLE_TONES: (
+        [0, 1],
+        "PDa"),
+
 }
 
 CONFIG_SCHEMA = PIPSOLAR_COMPONENT_SCHEMA.extend(
