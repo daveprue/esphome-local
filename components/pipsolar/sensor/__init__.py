@@ -82,7 +82,7 @@ CONF_PV_CHARGING_POWER = "pv_charging_power"
 TYPES = {
     CONF_GRID_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
@@ -94,20 +94,20 @@ TYPES = {
     ),
     CONF_AC_OUTPUT_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     CONF_AC_OUTPUT_RATING_FREQUENCY: sensor.sensor_schema(
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_FREQUENCY,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     CONF_AC_OUTPUT_RATING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_CURRENT,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
@@ -125,7 +125,7 @@ TYPES = {
     ),
     CONF_BATTERY_RATING_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
