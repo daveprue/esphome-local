@@ -52,8 +52,7 @@ struct QFLAGValues {
 
 #define PIPSOLAR_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(sensor::Sensor, name, polling_command)
 #define PIPSOLAR_SWITCH(name, polling_command) PIPSOLAR_ENTITY_(switch_::Switch, name, polling_command)
-#define PIPSOLAR_BINARY_SENSOR(name, polling_command) \
-  PIPSOLAR_ENTITY_(binary_sensor::BinarySensor, name, polling_command)
+#define PIPSOLAR_BINARY_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(binary_sensor::BinarySensor, name, polling_command)
 #define PIPSOLAR_TEXT_SENSOR(name, polling_command) PIPSOLAR_ENTITY_(text_sensor::TextSensor, name, polling_command)
 
 class Pipsolar final : public uart::UARTDevice, public PollingComponent {
@@ -191,9 +190,9 @@ class Pipsolar final : public uart::UARTDevice, public PollingComponent {
   void update() override;
 
  protected:
-  static const size_t PIPSOLAR_READ_BUFFER_LENGTH = 128;  // maximum supported answer length
+  static const size_t PIPSOLAR_READ_BUFFER_LENGTH = 130;  // maximum supported answer length
   static const size_t COMMAND_QUEUE_LENGTH = 10;
-  static const size_t COMMAND_TIMEOUT = 5000;
+  static const size_t COMMAND_TIMEOUT = 7500;
   static const size_t POLLING_COMMANDS_MAX = 15;
   void add_polling_command_(const char *command, ENUMPollingCommand polling_command);
   void empty_uart_buffer_();
