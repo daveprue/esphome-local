@@ -197,7 +197,6 @@ switch:
           id(${device_name}climate).set_force_mode_state(false);
 
 select:
-  # Настройка вертикального качания
   - platform: template
     name: Vertical Swing
     id: vswing

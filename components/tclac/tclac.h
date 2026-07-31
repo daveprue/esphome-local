@@ -19,7 +19,7 @@ typedef unsigned char byte;
 #define MODE_AUTO		0b00110101
 #define MODE_COOL		0b00110001
 #define MODE_DRY		0b00110011
-#define MODE_FAN_ONLY	0b00110010
+#define MODE_FAN_ONLY		0b00110010
 #define MODE_HEAT		0b00110100
 
 #define FAN_SPEED_POS	8
@@ -33,13 +33,13 @@ typedef unsigned char byte;
 #define FAN_HIGH		0b11010000	//	||||
 #define FAN_FOCUS		0b10110000	//	|||||
 #define FAN_DIFFUSE		0b10000000	//	POWER [7]
-#define FAN_SPEED_MASK	0b11110000	//FAN SPEED MASK
+#define FAN_SPEED_MASK		0b11110000	//FAN SPEED MASK
 
 #define SWING_POS			10
-#define SWING_OFF			0b00000000
+#define SWING_OFF		0b00000000
 #define SWING_HORIZONTAL	0b00100000
 #define SWING_VERTICAL		0b01000000
-#define SWING_BOTH			0b01100000
+#define SWING_BOTH		0b01100000
 #define SWING_MODE_MASK		0b01100000
 
 using climate::ClimateCall;
@@ -81,13 +81,9 @@ class tclacClimate : public climate::Climate, public esphome::uart::UARTDevice, 
 
 	private:
 		byte checksum;
-		// dataTX с управлением состоит из 38 байт
 		byte dataTX[38];
-		// А dataRX по прежнему из 61 байта
 		byte dataRX[61];
-		// Команда запроса состояния
 		byte poll[8] = {0xBB,0x00,0x01,0x04,0x02,0x01,0x00,0xBD};
-		// Инициализация и начальное наполнение переменных состоянй переключателей
 		bool beeper_status_;
 		bool display_status_;
 		bool force_mode_status_;
@@ -145,8 +141,8 @@ class tclacClimate : public climate::Climate, public esphome::uart::UARTDevice, 
 		VerticalSwingDirection vertical_swing_direction_;
 		std::set<ClimateSwingMode> supported_swing_modes_{};
 		HorizontalSwingDirection horizontal_swing_direction_;
-};
-}
+		};
+	}
 }
 
 #endif //TCL_ESP_TCL_H
