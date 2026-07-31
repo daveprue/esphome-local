@@ -10,7 +10,7 @@ ClimateTraits tclacClimate::traits() {
 	auto traits = climate::ClimateTraits();
 
 	traits.clear_feature_flags(climate::CLIMATE_SUPPORTS_ACTION);
-	traits.set_supports_current_temperature(true);
+	traits.add_feature_flags(climate::CLIMATE_SUPPORTS_CURRENT_TEMPERATURE);
 	traits.set_supports_two_point_target_temperature(false);
 
 	traits.set_supported_modes(this->supported_modes_);
