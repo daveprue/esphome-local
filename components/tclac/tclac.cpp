@@ -600,8 +600,20 @@ void tclacClimate::set_vertical_swing_direction(VerticalSwingDirection direction
 	}
 }
 
-void tclacClimate::set_supported_modes(const std::set<climate::ClimateMode> &modes) {
+void tclacClimate::set_supported_modes(esphome::climate::ClimateModeMask modes) {
 	this->supported_modes_ = modes;
+}
+
+void tclacClimate::set_supported_fan_modes(esphome::climate::ClimateFanModeMask modes){
+	this->supported_fan_modes_ = modes;
+}
+
+void tclacClimate::set_supported_swing_modes(esphome::climate::ClimateSwingModeMask modes) {
+	this->supported_swing_modes_ = modes;
+}
+
+void tclacClimate::set_supported_presets(esphome::climate::ClimatePresetMask presets) {
+  this->supported_presets_ = presets;
 }
 
 void tclacClimate::set_horizontal_swing_direction(HorizontalSwingDirection direction) {
@@ -612,18 +624,5 @@ void tclacClimate::set_horizontal_swing_direction(HorizontalSwingDirection direc
 		}
 	}
 }
-
-void tclacClimate::set_supported_fan_modes(const std::set<climate::ClimateFanMode> &modes){
-	this->supported_fan_modes_ = modes;
-}
-
-void tclacClimate::set_supported_swing_modes(const std::set<climate::ClimateSwingMode> &modes) {
-	this->supported_swing_modes_ = modes;
-}
-
-void tclacClimate::set_supported_presets(const std::set<climate::ClimatePreset> &presets) {
-  this->supported_presets_ = presets;
-}
-
 }
 }
