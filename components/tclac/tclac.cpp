@@ -11,7 +11,6 @@ ClimateTraits tclacClimate::traits() {
 
 	traits.clear_feature_flags(climate::CLIMATE_SUPPORTS_ACTION);
 	traits.add_feature_flags(climate::CLIMATE_SUPPORTS_CURRENT_TEMPERATURE);
-	traits.set_supports_two_point_target_temperature(false);
 
 	traits.set_supported_modes(this->supported_modes_);
 	traits.set_supported_presets(this->supported_presets_);
