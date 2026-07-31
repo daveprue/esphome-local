@@ -27,10 +27,18 @@ api:
 ota:
 - platform: esphome
 
+uart:
+  baud_rate: 9600
+  data_bits: 8
+  parity: EVEN
+  stop_bits: 1
+  rx_pin: ${uart_rx}
+  tx_pin: ${uart_tx}
+
 wifi:
   id: "${device_name}_wifi"
   ap:
-    ssid: "Air Conditioner"
+    ssid: "TCL WiFi Module"
 
 esp32:
   board: esp32dev
@@ -38,10 +46,11 @@ esp32:
     type: arduino
 
 esphome:
-  min_version: 2023.3.0
+  min_version: 2023.6.5
+  name_add_mac_suffix: True
   project:
     name: "Dave Prue.TCL Air Conditioner"
-    version: G
+    version: H
 
   on_boot:
     priority: -100
@@ -119,17 +128,6 @@ esphome:
         } else {
           id(${device_name}climate).set_force_mode_state(false);
         }
-
-uart:
-  baud_rate: 9600
-  data_bits: 8
-  parity: EVEN
-  stop_bits: 1
-  rx_pin: ${uart_rx}
-  tx_pin: ${uart_tx}
-
-#logger:
-#  baud_rate: 0
 
 switch:
   - name: " Beeper"
