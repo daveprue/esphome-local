@@ -7,7 +7,6 @@ external_components:
     components: [ tclac ]
     refresh: 30s
 
-# Allow provisioning Wi-Fi via serial
 improv_serial:
 
 esp32_improv:
@@ -27,13 +26,13 @@ api:
 ota:
 - platform: esphome
 
-uart:
-  baud_rate: 9600
-  data_bits: 8
-  parity: EVEN
-  stop_bits: 1
-  rx_pin: ${uart_rx}
-  tx_pin: ${uart_tx}
+#uart:
+#  baud_rate: 9600
+#  data_bits: 8
+#  parity: EVEN
+#  stop_bits: 1
+#  rx_pin: ${uart_rx}
+#  tx_pin: ${uart_tx}
 
 wifi:
   id: "${device_name}_wifi"
@@ -42,15 +41,16 @@ wifi:
 
 esp32:
   board: esp32dev
+  flash_size: 16MB
   framework:
-    type: arduino
+    type: esp-idf
 
 esphome:
   min_version: 2023.7.3
   name_add_mac_suffix: True
   project:
     name: "Dave Prue.TCL Air Conditioner"
-    version: H
+    version: 1.0.0
 
   on_boot:
     priority: -100
