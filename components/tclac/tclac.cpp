@@ -491,13 +491,14 @@ void tclacClimate::sendData(byte * message, byte size) {
 	tclacClimate::dataShow(1,0);
 }
 
-String tclacClimate::getHex(byte *message, byte size) {
-	String raw;
-	for (int i = 0; i < size; i++) {
-		raw += "\n" + String(message[i]);
-	}
-	raw.toUpperCase();
-	return raw;
+std::string tclacClimate::getHex(byte *message, byte size) {
+  std::string raw_msg = "";
+  for (int i = 0; i < size; i++) {
+    char buffer[5];
+    sprintf(buffer, "%02X ", message[i]);
+    raw_msg += buffer;
+  }
+  return raw_msg;
 }
 
 byte tclacClimate::getChecksum(const byte * message, size_t size) {
