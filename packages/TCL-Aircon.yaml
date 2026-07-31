@@ -46,7 +46,7 @@ esp32:
     type: arduino
 
 esphome:
-  min_version: 2023.6.5
+  min_version: 2023.7.3
   name_add_mac_suffix: True
   project:
     name: "Dave Prue.TCL Air Conditioner"
