@@ -47,8 +47,6 @@ tclac_ns = cg.esphome_ns.namespace("tclac")
 tclacClimate = tclac_ns.class_("tclacClimate", uart.UARTDevice, climate.Climate, cg.PollingComponent)
 
 SUPPORTED_FAN_MODES_OPTIONS = {
-    "ON": ClimateMode.CLIMATE_FAN_ON,
-    "OFF": ClimateMode.CLIMATE_FAN_OFF,
     "AUTO": ClimateMode.CLIMATE_FAN_AUTO,
     "LOW": ClimateMode.CLIMATE_FAN_LOW,
     "MEDIUM": ClimateMode.CLIMATE_FAN_MEDIUM,
