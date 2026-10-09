@@ -47,14 +47,16 @@ tclac_ns = cg.esphome_ns.namespace("tclac")
 tclacClimate = tclac_ns.class_("tclacClimate", uart.UARTDevice, climate.Climate, cg.PollingComponent)
 
 SUPPORTED_FAN_MODES_OPTIONS = {
-    "AUTO": ClimateMode.CLIMATE_FAN_AUTO,  # Доступен всегда
-    "QUIET": ClimateMode.CLIMATE_FAN_QUIET,
+    "ON": ClimateMode.CLIMATE_FAN_ON,
+    "OFF": ClimateMode.CLIMATE_FAN_OFF,
+    "AUTO": ClimateMode.CLIMATE_FAN_AUTO,
     "LOW": ClimateMode.CLIMATE_FAN_LOW,
-    "MIDDLE": ClimateMode.CLIMATE_FAN_MIDDLE,
     "MEDIUM": ClimateMode.CLIMATE_FAN_MEDIUM,
     "HIGH": ClimateMode.CLIMATE_FAN_HIGH,
+    "MIDDLE": ClimateMode.CLIMATE_FAN_MIDDLE,
     "FOCUS": ClimateMode.CLIMATE_FAN_FOCUS,
     "DIFFUSE": ClimateMode.CLIMATE_FAN_DIFFUSE,
+    "QUIET": ClimateMode.CLIMATE_FAN_QUIET,
 }
 
 SUPPORTED_SWING_MODES_OPTIONS = {
