@@ -33,8 +33,8 @@ TCLAC_MAX_TEMPERATURE = 31.0
 TCLAC_TARGET_TEMPERATURE_STEP = 1.0
 TCLAC_CURRENT_TEMPERATURE_STEP = 0.1
 
-//CONF_RX_LED = "rx_led"
-//CONF_TX_LED = "tx_led"
+CONF_RX_LED = "rx_led"
+CONF_TX_LED = "tx_led"
 CONF_DISPLAY = "show_display"
 CONF_FORCE_MODE = "force_mode"
 CONF_VERTICAL_AIRFLOW = "vertical_airflow"
