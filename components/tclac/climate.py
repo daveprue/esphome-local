@@ -33,8 +33,8 @@ TCLAC_MAX_TEMPERATURE = 31.0
 TCLAC_TARGET_TEMPERATURE_STEP = 1.0
 TCLAC_CURRENT_TEMPERATURE_STEP = 0.1
 
-CONF_RX_LED = "rx_led"
-CONF_TX_LED = "tx_led"
+//CONF_RX_LED = "rx_led"
+//CONF_TX_LED = "tx_led"
 CONF_DISPLAY = "show_display"
 CONF_FORCE_MODE = "force_mode"
 CONF_VERTICAL_AIRFLOW = "vertical_airflow"
@@ -47,6 +47,8 @@ tclac_ns = cg.esphome_ns.namespace("tclac")
 tclacClimate = tclac_ns.class_("tclacClimate", uart.UARTDevice, climate.Climate, cg.PollingComponent)
 
 SUPPORTED_FAN_MODES_OPTIONS = {
+    "ON": ClimateMode.CLIMATE_FAN_ON,
+    "OFF": ClimateMode.CLIMATE_FAN_OFF,
     "AUTO": ClimateMode.CLIMATE_FAN_AUTO,
     "LOW": ClimateMode.CLIMATE_FAN_LOW,
     "MEDIUM": ClimateMode.CLIMATE_FAN_MEDIUM,
@@ -157,7 +159,7 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional(CONF_SUPPORTED_PRESETS,default=["NONE","ECO","SLEEP","COMFORT",],): cv.ensure_list(cv.enum(SUPPORTED_CLIMATE_PRESETS_OPTIONS, upper=True)),
             cv.Optional(CONF_SUPPORTED_SWING_MODES,default=["OFF","VERTICAL","HORIZONTAL","BOTH",],): cv.ensure_list(cv.enum(SUPPORTED_SWING_MODES_OPTIONS, upper=True)),
             cv.Optional(CONF_SUPPORTED_MODES,default=["OFF","AUTO","COOL","HEAT","DRY","FAN_ONLY",],): cv.ensure_list(cv.enum(SUPPORTED_CLIMATE_MODES_OPTIONS, upper=True)),
-            cv.Optional(CONF_SUPPORTED_FAN_MODES,default=["AUTO","QUIET","LOW","MIDDLE","MEDIUM","HIGH","FOCUS","DIFFUSE",],): cv.ensure_list(cv.enum(SUPPORTED_FAN_MODES_OPTIONS, upper=True)),
+            cv.Optional(CONF_SUPPORTED_FAN_MODES,default=["OFF","ON","AUTO","QUIET","LOW","MIDDLE","MEDIUM","HIGH","FOCUS","DIFFUSE",],): cv.ensure_list(cv.enum(SUPPORTED_FAN_MODES_OPTIONS, upper=True)),
         }
     )
     .extend(uart.UART_DEVICE_SCHEMA)
